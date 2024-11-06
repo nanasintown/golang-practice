@@ -7,11 +7,13 @@ import "fmt"
 
 func main() {
 	fmt.Println("Pointer in Go lang")
-	num := 22
+	num := 24
 	// var numPtr *int
 	// numPtr = &num
 	// var numPtr *int = &num
+
 	numPtr := &num
+
 
 	fmt.Println("From num var", &num)
 	fmt.Println("Value of num pointer", numPtr)
@@ -19,6 +21,8 @@ func main() {
 
 	*numPtr = 45
 	fmt.Println("After change the value", *numPtr) // from 22 to 45
+	fmt.Println("Num", num)
+	fmt.Println(&num, numPtr)
 
 }
 

@@ -9,6 +9,9 @@ func main() {
 	// array has a fixed size. We can change the value of the items, but not the size of the array
 	var a [3]int   // initialize an array with 3 items, 0 is default value if not specified
 	fmt.Println(a) // a => [0 0 0]
+	aa := [2]string{"ss", "oo"}
+	fmt.Println(aa)
+
 
 	b := [4]int{1, 4, 6, 2}
 	fmt.Println(b)

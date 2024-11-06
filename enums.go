@@ -10,7 +10,9 @@ type ServerState int // this is an enum
 
 // those are possible values, as constant type
 const (
-	StateIdle = iota // this is a keyword.  iota is a special constant that is automatically incremented for each constant in a block.
+	// this is a keyword.  iota is a special constant that is 
+	// automatically incremented for each constant in a block.
+	StateIdle ServerState = iota 
 	StateConnected
 	StateError
 	StateRetrying
@@ -41,8 +43,17 @@ func transition(s ServerState) ServerState {
 	}
 }
 
+type Day int
+const (
+	DayOne Day = iota
+	DayTwo
+	DayThree
+)
+
 func main() {
 	fmt.Println("Interfaces")
+	fmt.Println(Day(2))
+	fmt.Println(Day(DayTwo))
 	ns := transition(StateIdle)
 	fmt.Println(ns)
 
