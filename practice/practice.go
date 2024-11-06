@@ -1,6 +1,3 @@
-//go:build q1
-// +build q1
-
 package main
 
 /**
