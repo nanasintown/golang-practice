@@ -5,15 +5,20 @@ package main
 
 */
 
-import "fmt"
+import (
+	"fmt"
+	"sort"
+)
 
 func main() {
 	fmt.Println("array and slice coding questions")
-	arrTest := []int{1, 4, 19, 39, 24, 16, 11, 87, 65, 29}
+	arrTest := []int{1, 4, 2, 3, 19, 39, 24, 16, 11, 87, 65, 29}
 	// reverse(arrTest)
-	// result := findDup(arrTest)
-	// fmt.Println(result)
-	result := TwoSum(arrTest, 40)
+	// resultDup := findDup(arrTest)
+	// fmt.Println(resultDup)
+	// result := TwoSum(arrTest, 40)
+	result := remove(arrTest)
+
 	fmt.Println(result)
 }
 
@@ -53,6 +58,8 @@ func TwoSum(arr []int, target int) []int {
 	sums := make(map[int]int)
 	for i, num := range arr {
 		diff := target - num
+		fmt.Println(num, diff)
+		// 	arrTest := []int{1, 4, 19, 39, 24, 16, 11, 87, 65, 29}
 		if j, ok := sums[diff]; ok{
 			return []int{j, i}
 		}
@@ -61,3 +68,21 @@ func TwoSum(arr []int, target int) []int {
 	return nil
 } 
 
+func remove(arr []int) int {
+	if (len(arr) == 0){
+		return 0
+	}
+	sort.Ints(arr)
+	// slices.Sort(arr)
+
+	var prev int = arr[0]
+	var kept int = 1
+
+	for i := 1; i < len(arr); i++ {
+		if arr[i] > prev + 1 {
+			kept++
+			prev = arr[i]
+		}
+	}
+	return len(arr) - kept
+}
